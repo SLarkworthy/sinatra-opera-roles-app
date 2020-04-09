@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     end
 
     post '/login' do
+        binding.pry
     end
 
 
