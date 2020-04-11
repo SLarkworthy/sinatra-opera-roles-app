@@ -9,12 +9,17 @@ class RolesController < ApplicationController
             redirect '/'
         end
         if params[:name] != ""
-            #create a new role
-            # @role = Role.create(user_id: current_user.id)
-            erb :'roles/show'
+            params[:user_id] = current_user.id
+            @role = Role.create(params)
+            redirect "/roles/#{@role.id}"
         else
             redirect '/roles/new'
         end
+    end
+    
+    get '/roles/:id' do
+        @role = Role.find(params[:id])
+        erb :'roles/show'
     end
 
 end
