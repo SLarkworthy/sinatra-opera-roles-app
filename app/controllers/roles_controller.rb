@@ -5,7 +5,16 @@ class RolesController < ApplicationController
     end
 
     post '/roles' do
-        erb :'roles/show'
+        if !logged_in?
+            redirect '/'
+        end
+        if params[:name] != ""
+            #create a new role
+            # @role = Role.create(user_id: current_user.id)
+            erb :'roles/show'
+        else
+            redirect '/roles/new'
+        end
     end
 
 end
