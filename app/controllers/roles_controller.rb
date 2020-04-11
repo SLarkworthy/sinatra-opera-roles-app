@@ -27,4 +27,17 @@ class RolesController < ApplicationController
         erb :'roles/edit'
     end
 
+    patch '/roles/:id' do
+        @role = Role.find(params[:id])
+        params[:user_id] = current_user.id
+        params.delete("_method")
+        binding.pry
+        @role.update(params)
+        redirect "/roles/#{@role.id}"
+      end
+
+      private
+      def set_role
+        @role = Role.find(params[:id])
+      end
 end
