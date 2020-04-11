@@ -1,0 +1,29 @@
+edit form
+<form action="/roles/<%= @role.id %>" method="POST">   
+    <input type="hidden" name="_method" value="patch">
+    <label for="name">Role Name: </label>
+    <input type="text" name="name" value="<%= @role.name %>"><br>
+    <label for="opera">Opera: </label>
+    <input type="text" name="opera" value="<%= @role.opera %>"><br>
+    <label for="composer">Composer: </label>
+    <input type="text" name="composer" value="<%= @role.composer %>"><br>
+    Tasks<br>
+    <input type="checkbox" name="researched" value="true" <%='checked' if @role.researched? %>>
+    <label for="researched">Researched </label><br>
+    <input type="checkbox" name="translated" value="true" <%='checked' if @role.translated? %>>
+    <label for="translated">Translated </label><br>
+    <input type="checkbox" name="listened" value="true" <%='checked' if @role.listened? %>>
+    <label for="listened">Listened </label><br>
+    <input type="checkbox" name="learned" value="true" <%='checked' if @role.learned? %>>
+    <label for="learned">Learned </label><br>
+    <input type="checkbox" name="coached" value="true" <%='checked' if @role.coached? %>>
+    <label for="coached">Coached </label><br>
+    <input type="checkbox" name="memorized" value="true" <%='checked' if @role.memorized? %>>
+    <label for="memorized">Memorized </label><br>
+
+    <label for="private_notes">Private notes: </label><br>
+    <textarea name="private_notes" rows="5" cols="70"><%= @role.private_notes %></textarea><br>
+    <label for="public_notes">Public notes: </label>
+    <textarea name="public_notes" rows="5" cols="70"><%= @role.public_notes %></textarea><br>
+    <input type="submit" value="Update Role">
+</form>

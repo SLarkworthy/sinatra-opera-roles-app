@@ -23,7 +23,8 @@ class RolesController < ApplicationController
     end
 
     get '/roles/:id/edit' do
-        "edit page tbc"
+        @role = Role.find(params[:id])
+        erb :'roles/edit'
     end
 
 end
