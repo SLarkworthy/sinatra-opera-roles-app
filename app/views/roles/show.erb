@@ -1,3 +1,12 @@
 role show page
+Show all role attributes
+tasks to be completed
+tasks completed
+notes - make sure private has an if statement to check
+if the user is logged into that account
 <%= @role.id %>
 <%= @role.learned? %>
+
+<a href="/roles/<%= @role.id %>/edit">Update Role</a>
+
+<a href="">Delete</a>

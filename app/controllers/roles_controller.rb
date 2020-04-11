@@ -22,4 +22,8 @@ class RolesController < ApplicationController
         erb :'roles/show'
     end
 
+    get '/roles/:id/edit' do
+        "edit page tbc"
+    end
+
 end
