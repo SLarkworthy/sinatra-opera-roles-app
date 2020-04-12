@@ -7,6 +7,10 @@ if the user is logged into that account
 <%= @role.id %>
 <%= @role.learned? %>
 
-<a href="/roles/<%= @role.id %>/edit">Update Role</a>
-
-<a href="">Delete</a>
+<% if current_user == @role.user %>
+    <a href="/roles/<%= @role.id %>/edit">Update Role</a>
+    <form action="/roles/<%= @role.id %>" method="POST">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="Delete Role">
+    </form>
+<% end %>

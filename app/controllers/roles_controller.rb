@@ -28,6 +28,16 @@ class RolesController < ApplicationController
         erb :'roles/show'
     end
 
+    delete '/roles/:id' do
+        @role = Role.find(params[:id])
+        if logged_in? && @role.user == current_user
+            @role.destroy
+            redirect "/users/#{current_user.id}"
+        else 
+            redirect '/roles'
+        end
+    end
+
     get '/roles/:id/edit' do
         @role = Role.find(params[:id])
         if logged_in? && @role.user == current_user
