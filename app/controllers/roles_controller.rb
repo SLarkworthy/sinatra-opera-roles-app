@@ -1,5 +1,11 @@
 class RolesController < ApplicationController
 
+
+    get '/roles' do
+        @roles = Role.all
+        erb :'roles/index'
+    end
+
     get '/roles/new' do
         erb :'roles/new'
     end
@@ -42,6 +48,7 @@ class RolesController < ApplicationController
             redirect '/'
         end
     end
+
 
       private
       def set_role

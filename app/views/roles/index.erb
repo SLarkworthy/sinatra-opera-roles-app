@@ -1,1 +1,6 @@
-index page for roles
+<h1>Check out what others are learning</h1>
+<% @roles.each do |role| %>
+    <%= role.user.username %><br>
+    <%= role.name %> - <%= role.opera %> - <%= role.composer %><br>
+    <%= role.public_notes %><br>
+<% end %>
