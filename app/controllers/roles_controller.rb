@@ -24,17 +24,24 @@ class RolesController < ApplicationController
 
     get '/roles/:id/edit' do
         @role = Role.find(params[:id])
-        erb :'roles/edit'
+        if logged_in? && @role.user == current_user
+            erb :'roles/edit'
+        else
+            redirect "/"
+        end
     end
 
     patch '/roles/:id' do
         @role = Role.find(params[:id])
-        params[:user_id] = current_user.id
-        params.delete("_method")
-        binding.pry
-        @role.update(params)
-        redirect "/roles/#{@role.id}"
-      end
+        if logged_in? && @role.user == current_user
+            params[:user_id] = current_user.id
+            params.delete("_method")
+            @role.update(params)
+            redirect "/roles/#{@role.id}"
+        else
+            redirect '/'
+        end
+    end
 
       private
       def set_role
