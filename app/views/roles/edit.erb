@@ -1,4 +1,4 @@
-edit form
+<h2>Update this Role</h2>
 <form action="/roles/<%= @role.id %>" method="POST">   
     <input type="hidden" name="_method" value="patch">
     <label for="name">Role Name: </label>
@@ -6,8 +6,9 @@ edit form
     <label for="opera">Opera: </label>
     <input type="text" name="opera" value="<%= @role.opera %>"><br>
     <label for="composer">Composer: </label>
-    <input type="text" name="composer" value="<%= @role.composer %>"><br>
-    Tasks<br>
+    <input type="text" name="composer" value="<%= @role.composer %>"><br><br>
+
+    <strong>Tasks: </strong><br>
     <input type="checkbox" name="researched" value="true" <%='checked' if @role.researched? %>>
     <label for="researched">Researched </label><br>
     <input type="checkbox" name="translated" value="true" <%='checked' if @role.translated? %>>
@@ -19,7 +20,7 @@ edit form
     <input type="checkbox" name="coached" value="true" <%='checked' if @role.coached? %>>
     <label for="coached">Coached </label><br>
     <input type="checkbox" name="memorized" value="true" <%='checked' if @role.memorized? %>>
-    <label for="memorized">Memorized </label><br>
+    <label for="memorized">Memorized </label><br><br>
 
     <label for="private_notes">Private notes: </label><br>
     <textarea name="private_notes" rows="5" cols="70"><%= @role.private_notes %></textarea><br>

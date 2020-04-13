@@ -1,12 +1,13 @@
-new form
+<h2>Add a new role</h2>
 <form action="/roles" method="POST">    
     <label for="name">Role Name: </label>
     <input type="text" name="name"><br>
     <label for="opera">Opera: </label>
     <input type="text" name="opera"><br>
     <label for="composer">Composer: </label>
-    <input type="text" name="composer"><br>
-    Tasks<br>
+    <input type="text" name="composer"><br><br>
+
+    <strong>Tasks: </strong><br>
     <input type="checkbox" name="researched" value="true">
     <label for="researched">Researched </label><br>
     <input type="checkbox" name="translated" value="true">
@@ -18,11 +19,11 @@ new form
     <input type="checkbox" name="coached" value="true">
     <label for="coached">Coached </label><br>
     <input type="checkbox" name="memorized" value="true">
-    <label for="memorized">Memorized </label><br>
+    <label for="memorized">Memorized </label><br><br>
 
     <label for="private_notes">Private notes: </label><br>
-    <textarea name="private_notes" rows="5" cols="70">Only you can see these notes.</textarea><br>
+    <textarea name="private_notes" rows="5" cols="70" placeholder="Only you can see these notes"></textarea><br>
     <label for="public_notes">Public notes: </label>
-    <textarea name="public_notes" rows="5" cols="70">Write any notes that will be helpful to other singers</textarea><br>
+    <textarea name="public_notes" rows="5" cols="70" placeholder="Write any notes that will be helpful to other singers"></textarea><br>
     <input type="submit" value="Create Role">
 </form>

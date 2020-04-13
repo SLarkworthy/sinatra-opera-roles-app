@@ -1,6 +1,6 @@
-<h1>Check out what others are learning</h1>
-<% @roles.each do |role| %>
-    <%= role.user.username %><br>
-    <%= role.name %> - <%= role.opera %> - <%= role.composer %><br>
-    <%= role.public_notes %><br><br>
-<% end %>
+<h2>Check out what others are learning</h2>
+<ol><% @roles.each do |role| %>
+    <a href="/users/<%= role.user.id %>"><%= role.user.username %></a> is learning<br>
+    <a href="/roles/<%= role.id %>"><%= role.name %> - <%= role.opera %> - <%= role.composer %></a><br>
+    <strong><%= "notes: " if role.public_notes != "" %></strong><%= role.public_notes %><br><br>
+<% end %></ol>
