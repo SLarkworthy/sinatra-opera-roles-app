@@ -1,6 +1,19 @@
-show page
-<%= @user.username %><br>
-<%= @user.email %>
-<% @tasks.each do |task| %>
-    <%= task %>
+<h1>Welcome, <%= @user.username %>
+<h2>Roles in Progress: </h2>
+<% @user.roles.each do |role| %>
+    <% if !role_completed?(role) %>
+    <a href="/roles/<%= role.id %>"><%= role.name %> - <%= role.opera %> - <%= role.composer %></a><br>
+    <%= role.public_notes %><br><br>
+    <% end %>
 <% end %>
+
+<h2>Roles completed: </h2>
+<% @user.roles.each do |role| %>
+    <% if !role_completed?(role) %>
+    <a href="/roles/<%= role.id %>"><%= role.name %> - <%= role.opera %> - <%= role.composer %></a><br>
+    <%= role.public_notes %><br><br>
+    <% end %>
+<% end %>
+
+
+

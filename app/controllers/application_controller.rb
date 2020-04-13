@@ -27,6 +27,10 @@ class ApplicationController < Sinatra::Base
       @current_user ||= User.find_by(id: session[:user_id])
     end
 
+    def role_completed?(role)
+      [role.researched?, role.translated?, role.listened?, role.learned?, role.coached?, role.memorized?].all?
+    end
+
   end
 
 end
