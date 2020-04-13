@@ -1,4 +1,8 @@
-<h1>Welcome, <%= @user.username %>
+<% if current_user == @user %>
+    <h1>Welcome, <%= @user.username %></h1>
+<% else %>
+    <h1><%= @user.username %>'s Roles</h1>
+<% end %>
 <h2>Roles in Progress: </h2>
 <% @user.roles.each do |role| %>
     <% if !role_completed?(role) %>
@@ -9,11 +13,9 @@
 
 <h2>Roles completed: </h2>
 <% @user.roles.each do |role| %>
-    <% if !role_completed?(role) %>
+    <% if role_completed?(role) %>
     <a href="/roles/<%= role.id %>"><%= role.name %> - <%= role.opera %> - <%= role.composer %></a><br>
     <%= role.public_notes %><br><br>
     <% end %>
 <% end %>
-
-
 
