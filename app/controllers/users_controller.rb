@@ -32,6 +32,7 @@ class UsersController < ApplicationController
 
     get '/users/:id' do
         @user = User.find_by(id: params[:id])
+        @tasks = Role.tasks
         erb :'users/show'
     end
 
