@@ -14,11 +14,12 @@ class RolesController < ApplicationController
         if !logged_in?
             redirect '/'
         end
-        if params[:name] != ""
+        if params[:name] != "" && params[:opera] != "" && params[:composer] != ""
             params[:user_id] = current_user.id
             @role = Role.create(params)
             redirect "/roles/#{@role.id}"
         else
+            flash[:message] = "Role must have a name, composer, and opera."
             redirect '/roles/new'
         end
     end
@@ -53,6 +54,9 @@ class RolesController < ApplicationController
             params[:user_id] = current_user.id
             params.delete("_method")
             @role.update(params)
+            if role_completed?(@role)
+                flash[:message] = "Congrats on completing this role!"
+            end
             redirect "/roles/#{@role.id}"
         else
             redirect '/'

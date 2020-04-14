@@ -25,8 +25,13 @@
       <a href='/signup'>Sign Up</a>
     <% end %>
     </div>
+  
     <div class="wrapper">
 
+    <% if flash[:message] %>
+      <h4><em><%= flash[:message] %></em></h4>
+    <% end %>
+    
         <%= yield %>
 
       <footer class="branding">
