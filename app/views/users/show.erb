@@ -7,7 +7,7 @@
 <% @user.roles.each do |role| %>
     <% if !role_completed?(role) %>
     <a href="/roles/<%= role.id %>"><%= role.name %> - <%= role.opera %> - <%= role.composer %></a><br>
-    <%= role.public_notes %><br><br>
+    <p><%= role.public_notes %></p><br><br>
     <% end %>
 <% end %>
 
@@ -15,7 +15,7 @@
 <% @user.roles.each do |role| %>
     <% if role_completed?(role) %>
     <a href="/roles/<%= role.id %>"><%= role.name %> - <%= role.opera %> - <%= role.composer %></a><br>
-    <%= role.public_notes %><br><br>
+    <p><%= role.public_notes %></p><br>
     <% end %>
 <% end %>
 

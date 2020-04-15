@@ -7,34 +7,34 @@
 
 <% if !role_completed?(@role) %>
     <strong>tasks in progress:</strong><br>
-    <%= "researched" if !@role.researched? %>
+    <p><%= "researched" if !@role.researched? %>
     <%= "translated" if !@role.translated? %>
     <%= "listened" if !@role.listened? %>
     <%= "learned" if !@role.learned? %>
     <%= "coached" if !@role.coached? %>
-    <%= "memorized" if !@role.memorized? %><br><br>
+    <%= "memorized" if !@role.memorized? %></p><br>
 <% end %>
 
     <strong>tasks completed:</strong><br>
-    <%= "researched" if @role.researched? %>
+    <p><%= "researched" if @role.researched? %>
     <%= "translated" if @role.translated? %>
     <%= "listened" if @role.listened? %>
     <%= "learned" if @role.learned? %>
     <%= "coached" if @role.coached? %>
-    <%= "memorized" if @role.memorized? %><br><br>
+    <%= "memorized" if @role.memorized? %></p><br>
     
 
 <% if current_user == @role.user && @role.private_notes != "" %>
     <strong>Private Notes:</strong>
-    <%= @role.private_notes %><br><br>
+    <p><%= @role.private_notes %></p><br>
 <% end %>
 
 <strong>Public Notes:</strong> 
-<% if @role.public_notes == "" %>
+<p><% if @role.public_notes == "" %>
     No Public Notes
 <% else %>
     <%= @role.public_notes %>
-<% end %><br><br>
+<% end %></p><br>
 
 
 
