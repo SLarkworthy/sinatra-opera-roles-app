@@ -14,7 +14,7 @@ An app for opera singers to keep track of the roles they're learning and share n
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/reneenordholm/avidcraft. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](https://www.contributor-covenant.org/) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/SLarkworthy/sinatra-opera-roles-app. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](https://www.contributor-covenant.org/) code of conduct.
 
 ## License
 
