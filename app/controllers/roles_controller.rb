@@ -1,6 +1,5 @@
 class RolesController < ApplicationController
 
-
     get '/roles' do
         @roles = Role.all
         erb :'roles/index'
