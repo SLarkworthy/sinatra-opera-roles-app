@@ -1,11 +1,11 @@
 <h5><%= @role.user.username %> is learning</h5>
 <h2><%= @role.name %> - <%= @role.opera %> - <%= @role.composer %><br></h2>
 
-<% if role_completed?(@role) %>
+<% if @role.role_completed? %>
     <h3> Role completed!!</h3><br>
 <% end %>
 
-<% if !role_completed?(@role) %>
+<% if !@role.role_completed? %>
     <strong>tasks in progress:</strong><br>
     <p><%= "researched" if !@role.researched? %>
     <%= "translated" if !@role.translated? %>

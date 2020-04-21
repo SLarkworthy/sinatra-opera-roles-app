@@ -5,7 +5,7 @@
 <% end %>
 <h2>Roles in Progress: </h2>
 <% @user.roles.each do |role| %>
-    <% if !role_completed?(role) %>
+    <% if !role.role_completed? %>
     <a href="/roles/<%= role.id %>"><%= role.name %> - <%= role.opera %> - <%= role.composer %></a><br>
     <p><%= role.public_notes %></p><br><br>
     <% end %>
@@ -13,7 +13,7 @@
 
 <h2>Roles completed: </h2>
 <% @user.roles.each do |role| %>
-    <% if role_completed?(role) %>
+    <% if role.role_completed? %>
     <a href="/roles/<%= role.id %>"><%= role.name %> - <%= role.opera %> - <%= role.composer %></a><br>
     <p><%= role.public_notes %></p><br>
     <% end %>

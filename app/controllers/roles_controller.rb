@@ -53,7 +53,7 @@ class RolesController < ApplicationController
             params[:user_id] = current_user.id
             params.delete("_method")
             @role.update(params)
-            if role_completed?(@role)
+            if @role.role_completed?
                 flash[:message] = "Congrats on completing this role!"
             end
             redirect "/roles/#{@role.id}"
@@ -62,9 +62,4 @@ class RolesController < ApplicationController
         end
     end
 
-
-      private
-      def set_role
-        @role = Role.find(params[:id])
-      end
 end
